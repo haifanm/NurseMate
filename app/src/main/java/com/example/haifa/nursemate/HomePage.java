@@ -38,7 +38,7 @@ public class HomePage extends AppCompatActivity {
 
     private void logout(){
 
-        Intent intent = new Intent(HomePage.this, MainActivity.class);
+        Intent intent = new Intent(HomePage.this, Login.class);
         startActivity(intent);
 
         System.out.println("logging out");

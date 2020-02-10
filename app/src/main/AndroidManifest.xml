@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.haifa.nursemate">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +19,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HomePage"></activity>
         <activity android:name=".ScanPage" />
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,5 +28,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
