@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
 import java.sql.Statement;
+import java.util.Date;
 
 /**
  * A sample app that connects to a Cloud SQL instance and lists all available tables
@@ -15,12 +16,16 @@ import java.sql.Statement;
 
 public class DBconnection {
 
+    public DBconnection(){
+        System.out.println("new dbconnection was created");
+    }
+
     public static void main(String[] args) throws SQLNonTransientConnectionException
             , IOException, SQLException, ClassNotFoundException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-//        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream("C:\\Users\\User\\Desktop\\NurseMate\\NurseMateProject-5e3cea6cf0f7.json"))
+//        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream("C:\Users\User\Desktop\SE\NurseMate\app\NurseMateProject-5e3cea6cf0f7.json"))
 //                .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
 //        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 
@@ -69,4 +74,11 @@ public class DBconnection {
     }
 
 
+    public boolean singinsuccess(){
+        return true;
+    }
+
+    public Patient getPatient(int id){
+        return new Patient("anyname", id, 20, "female", new Date(2020,1,1), "medications", "additionalInfo");
+    }
 }

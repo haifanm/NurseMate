@@ -8,32 +8,32 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+public class ScanTemp extends AppCompatActivity {
 
-    private Button Login;
+    private Button goToHome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_scan_temp);
 
-        BackendFacade backendfacade= new BackendFacade();
-
-        Login= (Button)findViewById(R.id.ButtonSignIn);
-        Login.setOnClickListener(new View.OnClickListener() {
+        goToHome= (Button)findViewById(R.id.scanbttemp);
+        goToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validate();
+                goToHomePage();
             }
         });
+
     }
 
-    private void validate(){
+    private void goToHomePage(){
 
 
-        Intent intent = new Intent(Login.this, ScanTemp.class);
+        Intent intent = new Intent(ScanTemp.this, HomePage.class);
         startActivity(intent);
 
-        System.out.println("WRONG");
+        System.out.println("going to home page!");
 
     }
 

@@ -175,4 +175,8 @@ public class ScanPage extends AppCompatActivity {
             });
         }
     }
+
+    public void onBackPressed() {
+
+    }
 }
