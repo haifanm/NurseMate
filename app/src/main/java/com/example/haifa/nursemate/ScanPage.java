@@ -176,7 +176,6 @@ public class ScanPage extends AppCompatActivity {
         }
     }
 
-    public void onBackPressed() {
-
-    }
+    //DONT CHANGE THIS.. this method is created just to disable the page button on the phone
+    public void onBackPressed() {    }
 }

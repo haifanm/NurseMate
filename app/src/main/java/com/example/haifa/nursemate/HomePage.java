@@ -1,5 +1,12 @@
 package com.example.haifa.nursemate;
+/*
+this page has to layouts on top on each other:
+- default layout to show the spo2, pr, pi measurements (contains a button to show patient details)
+- hidden layout that has the patient details (will appear if the user presses on the button to show patient details)
 
+TODO: receive the BackEndFacade object from the scan page
+TODO: use backendFacade.getNurse() .getPatient() .getRecord() to display the info (front end)
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -55,8 +62,6 @@ public class HomePage extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-
-    }
+    //DONT CHANGE THIS.. this method is created just to disable the page button on the phone
+    public void onBackPressed() {    }
 }

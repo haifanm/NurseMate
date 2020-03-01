@@ -5,25 +5,42 @@ import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
 
 public class BackendFacade {
-    DBconnection dbconnection;
-    Nurse nurse;
-    Patient patient;
+    DBconnection dbconnection; //TODO
+
+    private Nurse nurse;
+    private Patient patient;
+    Record record;
+    RecordBuilder recordBuilder;
 
     public BackendFacade() {
 
-        System.out.println("new facade was created!");
+    }
 
-//        dbconnection= new DBconnection();
-//
-//        if(dbconnection.singinsuccess()){
-//            nurse = new Nurse("nursename",1000);
-//        }
-//        else{
-//            nurse = new Nurse("",0);
-//        }
-//
-//        patient = dbconnection.getPatient(70);
+    void setPatient(int id){ //TODO
+        //create the patient from the info taken from the database
+        //patient = new Patient(........);
+    }
 
+    void setNurse(String name, int id){ //PLEASE DONT CHANGE THIS METHOD
+        //create the nurse according to the login info
+        nurse = new Nurse(name,id);
+    }
+
+    void setRecord(){ // TODO: send the record builder a connection to the database/info from the database for the analysis
+        recordBuilder = new RecordBuilder();
+        record = recordBuilder.buildRecord();
+    }
+
+    public Nurse getNurse() {
+        return nurse;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public Record getRecord() {
+        return record;
     }
 
 
