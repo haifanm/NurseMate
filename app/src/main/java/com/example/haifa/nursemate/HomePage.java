@@ -10,12 +10,16 @@ TODO: use backendFacade.getNurse() .getPatient() .getRecord() to display the inf
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.icu.text.SymbolTable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
 public class HomePage extends AppCompatActivity {
+
+    BackendFacade backendFacade;
+    int patientid;
 
     private Button show;
     private Button logout;
@@ -24,6 +28,14 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        Intent i = getIntent();
+        backendFacade = (BackendFacade) i.getParcelableExtra("backendfacade");
+        patientid = Integer.parseInt(getIntent().getStringExtra("patientid"));
+
+        System.out.println("HEREEEE PATEINT ID: "+patientid);
+
+
         logout= (Button)findViewById(R.id.secondbutton);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

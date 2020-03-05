@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ScanPage extends AppCompatActivity {
+    BackendFacade backendFacade;
 
     private static final String cameraPerm = Manifest.permission.CAMERA;
 
@@ -31,6 +32,11 @@ public class ScanPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_page);
+
+        Intent i = getIntent();
+        backendFacade = (BackendFacade) i.getParcelableExtra("backendfacade");
+
+
         System.out.println("hasCameraPermission1"+hasCameraPermission);
         hasCameraPermission = RuntimePermissionUtil.checkPermissonGranted(this, cameraPerm);
 //        hasCameraPermission=true;
@@ -116,7 +122,8 @@ public class ScanPage extends AppCompatActivity {
                         //text.setText(data);
                         //Toast.makeText(getApplicationContext(),data, Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(ctx,HomePage.class);
-//                        intent.putExtra("data",data);
+                        intent.putExtra("patientid",data);
+                        intent.putExtra("backendfacade",backendFacade);
                         startActivity(intent);
 
                     }

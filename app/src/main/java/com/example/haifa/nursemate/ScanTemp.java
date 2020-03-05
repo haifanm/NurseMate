@@ -10,12 +10,19 @@ import android.widget.TextView;
 
 public class ScanTemp extends AppCompatActivity {
 
+    public BackendFacade backendFacade;
     private Button goToHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_temp);
+
+        Intent i = getIntent();
+        backendFacade = (BackendFacade) i.getParcelableExtra("backendfacade");
+
+
+        System.out.println(backendFacade.afacadestring);
 
         goToHome= (Button)findViewById(R.id.scanbttemp);
         goToHome.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +38,7 @@ public class ScanTemp extends AppCompatActivity {
 
 
         Intent intent = new Intent(ScanTemp.this, HomePage.class);
+        intent.putExtra("backendfacade",backendFacade);
         startActivity(intent);
 
         System.out.println("going to home page!");

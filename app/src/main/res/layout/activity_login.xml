@@ -7,41 +7,63 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/usernameedittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/passwordedittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/usernameedittext"
+        android:layout_alignStart="@+id/usernameedittext"
         android:layout_marginTop="33dp"
+        android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword"  />
+        android:inputType="textPassword" />
+
 
     <Button
         android:id="@+id/ButtonSignIn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText4"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/passwordedittext"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="52dp"
         android:layout_marginLeft="45dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="58dp"
         android:text="Sign In" />
-
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="224dp"
-        android:layout_height="215dp"
+        android:layout_width="wrap_content"
+        android:layout_height="221dp"
+        android:layout_above="@+id/usernameedittext"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="95dp"
         android:layout_marginLeft="95dp"
-        android:layout_marginTop="83dp" />
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="39dp" />
+
+    <TextView
+        android:id="@+id/try_again_text"
+        android:layout_width="wrap_content"
+        android:layout_height="57dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginEnd="78dp"
+        android:textColor="#FF0000" />
 
 </android.widget.RelativeLayout>
