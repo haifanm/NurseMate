@@ -121,10 +121,11 @@ public class ScanPage extends AppCompatActivity {
 
                         //text.setText(data);
                         //Toast.makeText(getApplicationContext(),data, Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(ctx,HomePage.class);
-                        intent.putExtra("patientid",data);
-                        intent.putExtra("backendfacade",backendFacade);
-                        startActivity(intent);
+                            Intent intent=new Intent(ctx,HomePage.class);
+                            intent.putExtra("patientid",data);
+                            intent.putExtra("backendfacade",backendFacade);
+                            startActivity(intent);
+
 
                     }
                 });

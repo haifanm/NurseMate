@@ -1,10 +1,6 @@
 package com.example.haifa.nursemate;
 /*
 LOGIN PAGE
-
-TODO: validate() according to the accounts in the database
-TODO: send the facade to the next page (ScanPage) in intent
-TODO: text view to tell the user to try again in case of unsuccessful login
  */
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -31,7 +27,6 @@ public class Login extends AppCompatActivity {
 
         backendFacade= new BackendFacade();
 
-
         usernameedittext= (EditText) findViewById(R.id.usernameedittext);
         passwordedittext= (EditText) findViewById(R.id.passwordedittext);
         Login= (Button)findViewById(R.id.ButtonSignIn);
@@ -53,7 +48,7 @@ public class Login extends AppCompatActivity {
 
         //go to the scan page and send the backend facade to it
         if(backendFacade.usernamevalid(this,usernameedittext.getText().toString(),passwordedittext.getText().toString())){
-            Bundle extras = new Bundle();
+            backendFacade.setNurse(usernameedittext.getText().toString(),800);
 
             Intent intent = new Intent(Login.this, ScanPage.class);
             intent.putExtra("backendfacade",backendFacade);

@@ -71,4 +71,8 @@ public class Record {
     public boolean isPiAlert() {
         return piAlert;
     }
+
+    public String toString(){
+        return "my record is: ["+spo2+","+pr+","+pi+"]";
+    }
 }

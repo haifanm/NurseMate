@@ -4,31 +4,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="6dp"
     tools:context=".HomePage">
 
-    <FrameLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+
+    <LinearLayout
+        android:id="@+id/measureslayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/firstbutton"
+            android:id="@+id/logoutbutton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout" />
+
+        <TextView
+            android:id="@+id/spo2value"
             android:layout_width="match_parent"
-            android:layout_height="145dp"
-            android:text="firstbutton" />
+            android:layout_height="200dp"
+            android:text="SpO2 Measurements" />
 
-        <Button
-            android:id="@+id/secondbutton"
-            android:layout_width="108dp"
-            android:layout_height="124dp"
-            android:text="logout" />
+        <TextView
+            android:id="@+id/prvalue"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="Pulse Rate" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/pivalue"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="Perfusion Index" />
+
+        <TextView
+            android:id="@+id/viewpatientprofile"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:text="View Patients Profile"
+            android:textAlignment="center"
+            android:textColor="#A7A4A4"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/profilelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/logoutbutton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/backbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.996"
+                app:layout_constraintStart_toEndOf="@+id/logoutbutton2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.01"
+                app:srcCompat="@android:drawable/btn_dialog" />
+
+            <TextView
+                android:id="@+id/patientinfotext"
+                android:layout_width="426dp"
+                android:layout_height="630dp"
+                android:layout_marginTop="80dp"
+                android:text="patientInfo!!!!!!!!"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

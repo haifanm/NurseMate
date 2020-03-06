@@ -78,7 +78,7 @@ public class DBconnection {
         return true;
     }
 
-    public Patient getPatient(int id){
+    public Patient getPatient(String id){
         return new Patient("anyname", id, 20, "female", new Date(2020,1,1), "medications", "additionalInfo");
     }
 }

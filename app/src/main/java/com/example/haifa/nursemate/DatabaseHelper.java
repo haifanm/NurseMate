@@ -10,6 +10,10 @@ import com.google.api.services.sqladmin.model.Database;
 
 import org.apache.http.impl.client.NoopUserTokenHandler;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -19,6 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_NURSES_ID = "nurseid" ;
     public static final String COL_NURSES_NAME = "nursename" ;
     public static final String COL_NURSES_PASS = "nursepass" ;
+    public static final String PATIENTS_TABLE_NAME = "patients" ;
 
 
     public static DatabaseHelper databaseHelper;
@@ -40,12 +45,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table "+NURSES_TABLE_NAME+"(nurseid INTEGER PRIMARY KEY AUTOINCREMENT,nursename TEXT,nursepass TEXT)");
-
+        sqLiteDatabase.execSQL("create table "+PATIENTS_TABLE_NAME+"(patientid TEXT PRIMARY KEY ,pname TEXT, page INTEGER, pgender TEXT, pdate TEXT, pmedications TEXT, pinfo TEXT)");
+        insertData();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("drop table if exists "+NURSES_TABLE_NAME);
+        sqLiteDatabase.execSQL("drop table if exists "+PATIENTS_TABLE_NAME);
         onCreate(sqLiteDatabase);
 
     }
@@ -53,6 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void resetDatabase() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         sqLiteDatabase.execSQL("drop table if exists "+NURSES_TABLE_NAME);
+        sqLiteDatabase.execSQL("drop table if exists "+PATIENTS_TABLE_NAME);
         onCreate(sqLiteDatabase);
 
     }
@@ -61,6 +69,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
+
+    ///////NURSES INFO
+        contentValues.put(COL_NURSES_NAME,"");
+        contentValues.put(COL_NURSES_PASS,"");
+        result= sqLiteDatabase.insert(NURSES_TABLE_NAME,null,contentValues);
+        if(result == -1 )  return  false;
 
         contentValues.put(COL_NURSES_NAME,"username1");
         contentValues.put(COL_NURSES_PASS,"pass1");
@@ -82,12 +97,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         result= sqLiteDatabase.insert(NURSES_TABLE_NAME,null,contentValues);
         if(result == -1 )  return  false;
 
+    //////PATIENT INFO
+        contentValues.clear();
+        contentValues.put("patientid","101011");
+        contentValues.put("pname","Asta Maja Beatty");
+        contentValues.put("page",33);
+        contentValues.put("pgender","female");
+        contentValues.put("pdate","01/01/2020");
+        contentValues.put("pmedications","sompladib, dilaldolaolone, arteporfin");
+        contentValues.put("pinfo","This patient has Diabetes and ASTHMA ");
+        result= sqLiteDatabase.insert(PATIENTS_TABLE_NAME,null,contentValues);
+        if(result == -1 )  return  false;
+
+        contentValues.put("patientid","101012");
+        contentValues.put("pname","Asta Maja Beatty");
+        contentValues.put("page",33);
+        contentValues.put("pgender","female");
+        contentValues.put("pdate","01/01/2020");
+        contentValues.put("pmedications","sompladib, dilaldolaolone, arteporfin");
+        contentValues.put("pinfo","This patient has Diabetes and ASTHMA ");
+        result= sqLiteDatabase.insert(PATIENTS_TABLE_NAME,null,contentValues);
+        if(result == -1 )  return  false;
+
+        contentValues.put("patientid","101013");
+        contentValues.put("pname","Asta Maja Beatty");
+        contentValues.put("page",33);
+        contentValues.put("pgender","female");
+        contentValues.put("pdate","01/01/2020");
+        contentValues.put("pmedications","sompladib, dilaldolaolone, arteporfin");
+        contentValues.put("pinfo","This patient has Diabetes and ASTHMA ");
+        result= sqLiteDatabase.insert(PATIENTS_TABLE_NAME,null,contentValues);
+        if(result == -1 )  return  false;
+
         return true;
     }
 
-    public Cursor getData(){
+    public Cursor getNurses(){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor res = sqLiteDatabase.rawQuery("select * from "+NURSES_TABLE_NAME,null);
+        return res;
+    }
+
+    public Cursor getPatients(){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor res = sqLiteDatabase.rawQuery("select * from "+PATIENTS_TABLE_NAME ,null);
+        return res;
+    }
+
+    public Cursor getPatientById(String id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor res = sqLiteDatabase.rawQuery("select * from "+PATIENTS_TABLE_NAME+" where patientid LIKE  "+ id,null);
         return res;
     }
 }

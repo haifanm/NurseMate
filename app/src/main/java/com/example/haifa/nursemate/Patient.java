@@ -7,14 +7,14 @@ import java.util.Date;
 public class Patient {
 
     String name;
-    int id;
+    String id;
     int age;
     String gender;
     Date dateOfAdmission;
     String medications;
     String additionalInfo;
 
-    public Patient(String name, int id, int age, String gender, Date dateOfAdmission, String medications, String additionalInfo){
+    public Patient(String name, String id, int age, String gender, Date dateOfAdmission, String medications, String additionalInfo){
         this.name= name;
         this.id= id;
         this.age= age;
@@ -28,7 +28,7 @@ public class Patient {
         return name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -50,5 +50,9 @@ public class Patient {
 
     public String getAdditionalInfo() {
         return additionalInfo;
+    }
+
+    public String toString(){
+        return "this is a patient with id "+id+" and date "+dateOfAdmission;
     }
 }

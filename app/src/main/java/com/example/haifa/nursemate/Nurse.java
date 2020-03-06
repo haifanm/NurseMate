@@ -4,16 +4,16 @@ PLEASE DONT CHANGE ANYTHING IN THIS CLASS
  */
 public class Nurse {
 
-    private String name;
+    private String username;
     private int id;
 
-    public Nurse(String name, int id){
-        this.name = name;
+    public Nurse(String username, int id){
+        this.username = username;
         this.id= id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
     public int getId() {
