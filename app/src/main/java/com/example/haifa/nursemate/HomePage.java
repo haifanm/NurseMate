@@ -44,8 +44,11 @@ public class HomePage extends AppCompatActivity {
         backendFacade = (BackendFacade) i.getParcelableExtra("backendfacade");
         patientid = getIntent().getStringExtra("patientid");
         System.out.println("home page received PATEINT ID: "+patientid);
+
+
         backendFacade.setPatient(patientid);
         System.out.println("my new patient: "+backendFacade.getPatient());
+
 
         backendFacade.setRecord();
         System.out.println(backendFacade.getRecord().toString());
@@ -96,8 +99,6 @@ public class HomePage extends AppCompatActivity {
                 back();
             }
         });
-
-
 
     }
 

@@ -14,7 +14,6 @@ import java.util.Date;
 public class BackendFacade implements Parcelable {
     final public String afacadestring= "HELLOTHEREEE";
 
-    DBconnection dbconnection; //TODO
     Context context;
     DatabaseHelper myDb;
 
@@ -54,8 +53,8 @@ public class BackendFacade implements Parcelable {
         //create the patient from the info taken from the database
         //patient = new Patient(........);
         myDb = DatabaseHelper.getDatabaseHelper(context);
-//        myDb.resetDatabase();
-//        myDb.insertData();
+
+        myDb.resetDatabase();
 
         Cursor res = myDb.getPatientById(id);
 
@@ -82,9 +81,10 @@ public class BackendFacade implements Parcelable {
         nurse = new Nurse(name,id);
     }
 
-    void setRecord(){ // TODO: send the record builder a connection to the database/info from the database for the analysis
-        recordBuilder = new RecordBuilder();
+    void setRecord(){
+        recordBuilder = new RecordBuilder(this);
         record = recordBuilder.buildRecord();
+        myDb.insertRecord(record,patient);
     }
 
     public Nurse getNurse() {
@@ -130,5 +130,61 @@ public class BackendFacade implements Parcelable {
         return false;
     }
 
+    public boolean spo2abnormal(){
 
+        myDb = DatabaseHelper.getDatabaseHelper(context);
+        Cursor res = myDb.queryRecords(patient.getId());
+        System.out.println("getting records of patient "+patient.getId());
+        while(res.moveToNext()){
+            System.out.println("patientID:"+res.getString(0));
+            if(res.getInt(5)==1){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean prabnormal(){
+        myDb = DatabaseHelper.getDatabaseHelper(context);
+        Cursor res = myDb.queryRecords(patient.getId());
+        System.out.println("getting records of patient "+patient.getId());
+        while(res.moveToNext()){
+            System.out.println("patientID:"+res.getString(0));
+            if(res.getInt(6)==1){
+                return true;
+            }
+        }
+        return true;
+    }
+
+    public boolean piabnormal(){
+        myDb = DatabaseHelper.getDatabaseHelper(context);
+        Cursor res = myDb.queryRecords(patient.getId());
+        System.out.println("getting records of patient "+patient.getId());
+        while(res.moveToNext()){
+            System.out.println("patientID:"+res.getString(0));
+            if(res.getInt(7)==1){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void queryrecords(){
+
+
+        myDb = DatabaseHelper.getDatabaseHelper(context);
+
+        Cursor res = myDb.queryRecords(patient.getId());
+
+        while(res.moveToNext()){
+            System.out.println("record id:"+res.getString(0));
+            System.out.println("patient id:"+res.getString(1));
+            System.out.println("some data: "+res.getString(4));
+
+        }
+
+
+
+    }
 }

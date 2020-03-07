@@ -4,7 +4,6 @@ package com.example.haifa.nursemate;
 a RECORD object holds the measurements that should be measured my the Monitor machine
 a record object is built by the RecordBuilder class
 
-PLEASE DONT CHANGE ANYTHING IN THIS CLASS
  */
 public class Record {
 
@@ -14,6 +13,7 @@ public class Record {
     private boolean spo2Alert;
     private boolean prAlert;
     private boolean piAlert;
+    private int recordtime;
 
     public Record(){
         spo2=0;
@@ -22,6 +22,7 @@ public class Record {
         spo2Alert=false;
         prAlert=false;
         piAlert=false;
+        recordtime=1234;
     }
 
     void setSpo2(double spo2Generated){
@@ -48,6 +49,10 @@ public class Record {
         this.piAlert=piAlertAnalyzed;
     }
 
+    void setRecordTime(int recordtime){
+        this.recordtime=recordtime;
+    }
+
     public double getSpo2() {
         return spo2;
     }
@@ -72,7 +77,12 @@ public class Record {
         return piAlert;
     }
 
+    public int getRecordTime() {
+        return recordtime;
+    }
+
     public String toString(){
-        return "my record is: ["+spo2+","+pr+","+pi+"]";
+        String timestring=recordtime/100+":"+recordtime%100;
+        return "my record is: ["+spo2+"% SpO2,"+pr+"PR,"+pi+"% Pi] @"+timestring+"with alerts:["+isSpo2Alert()+isPrAlert()+isPiAlert()+"]";
     }
 }
