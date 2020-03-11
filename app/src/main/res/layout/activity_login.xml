@@ -54,7 +54,8 @@
         android:layout_marginLeft="95dp"
         android:layout_marginTop="83dp"
         android:layout_marginEnd="92dp"
-        android:layout_marginBottom="39dp" />
+        android:layout_marginBottom="39dp"
+        android:src="@drawable/nursematelogo"/>
 
     <TextView
         android:id="@+id/try_again_text"

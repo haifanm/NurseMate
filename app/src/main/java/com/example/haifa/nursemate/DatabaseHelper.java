@@ -74,10 +74,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     ///////NURSES INFO
-        contentValues.put(COL_NURSES_NAME,"");
-        contentValues.put(COL_NURSES_PASS,"");
-        result= sqLiteDatabase.insert(NURSES_TABLE_NAME,null,contentValues);
-        if(result == -1 )  return  false;
 
         contentValues.put(COL_NURSES_NAME,"username1");
         contentValues.put(COL_NURSES_PASS,"pass1");

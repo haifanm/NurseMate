@@ -9,10 +9,33 @@
 
     <ImageView
         android:id="@+id/imageView"
+        android:layout_width="299dp"
+        android:layout_height="177dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="405dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nursematelogo"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="40dp" />
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="321dp"
+        android:text="By Medical Solutions Inc."
+        android:textColor="#AAAAAA"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

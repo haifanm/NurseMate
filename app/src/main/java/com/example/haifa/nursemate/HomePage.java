@@ -9,6 +9,7 @@ TODO: use backendFacade .getPatient() .getRecord() to display the info (front en
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class HomePage extends AppCompatActivity {
     private TextView prvalue;
     private TextView pivalue;
     private TextView viewpatientprofile;
+    private TextView patientinfotext;
 
     private Button logoutbutton2;
     ImageButton backbutton;
@@ -65,15 +67,25 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        int redColorValue = Color.parseColor("#FFA7A7");
         spo2value = (TextView) findViewById(R.id.spo2value) ;
-        spo2value.setText("SPO2 VALUE: "+backendFacade.getRecord().getSpo2());
-        if(backendFacade.getRecord().isSpo2Alert()) spo2value.setBackgroundColor(0xfff00000);
+        spo2value.setText("Oxygen Saturation (SpO2): "+backendFacade.getRecord().getSpo2());
+        if(backendFacade.getRecord().isSpo2Alert()){
+            spo2value.setBackgroundColor(redColorValue);
+            spo2value.setTextColor(0xfff00000);
+        }
         prvalue = (TextView) findViewById(R.id.prvalue) ;
-        prvalue.setText("PR VALUE: "+backendFacade.getRecord().getPr());
-        if(backendFacade.getRecord().isPrAlert()) prvalue.setBackgroundColor(0xfff00000);
+        prvalue.setText("Pulse Rate (PR): "+backendFacade.getRecord().getPr());
+        if(backendFacade.getRecord().isPrAlert()){
+            prvalue.setBackgroundColor(redColorValue);
+            prvalue.setTextColor(0xfff00000);
+        }
         pivalue = (TextView) findViewById(R.id.pivalue) ;
-        pivalue.setText("PI VALUE: "+backendFacade.getRecord().getPi());
-        if(backendFacade.getRecord().isPiAlert()) pivalue.setBackgroundColor(0xfff00000);
+        pivalue.setText("Perfusion Index (Pi) : "+backendFacade.getRecord().getPi());
+        if(backendFacade.getRecord().isPiAlert()){
+            pivalue.setBackgroundColor(redColorValue);
+            pivalue.setTextColor(0xfff00000);
+        }
 
 
         viewpatientprofile = (TextView) findViewById(R.id.viewpatientprofile);
@@ -99,6 +111,15 @@ public class HomePage extends AppCompatActivity {
                 back();
             }
         });
+
+        patientinfotext= (TextView) findViewById(R.id.patientinfotext) ;
+        patientinfotext.setText("\nNAME: "+backendFacade.getPatient().getName()
+                                +"\n\nGENDER: "+backendFacade.getPatient().getGender()
+                                +"\n\nAGE: "+backendFacade.getPatient().getAge()
+                                +"\n\nDATE OF ADMISSION: "+backendFacade.getPatient().getDateOfAdmission()
+                                +"\n\nMEDICATIONS: "+backendFacade.getPatient().getMedications()
+                                +"\n\nADDITIONAL INFO: "+backendFacade.getPatient().getAdditionalInfo()
+                );
 
     }
 

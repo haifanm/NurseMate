@@ -28,28 +28,37 @@
             android:id="@+id/spo2value"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:text="SpO2 Measurements" />
+            android:paddingTop="30dp"
+            android:text="SpO2 Measurements"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/prvalue"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:text="Pulse Rate" />
+            android:paddingTop="30dp"
+            android:text="Pulse Rate"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/pivalue"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:text="Perfusion Index" />
+            android:paddingTop="30dp"
+            android:text="Perfusion Index"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/viewpatientprofile"
             android:layout_width="match_parent"
             android:layout_height="78dp"
-            android:text="View Patients Profile"
+            android:text="View Patient's Profile"
             android:textAlignment="center"
             android:textColor="#A7A4A4"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="italic" />
 
     </LinearLayout>
@@ -94,7 +103,8 @@
                 android:layout_width="426dp"
                 android:layout_height="630dp"
                 android:layout_marginTop="80dp"
-                android:text="patientInfo!!!!!!!!"
+                android:layout_marginRight="100dp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
